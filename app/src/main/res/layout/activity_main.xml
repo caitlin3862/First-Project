@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="center"
-        android:text="START" />
+        android:text="@string/start" />
 
     <TextView
         android:id="@+id/instructions"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="center"
-        android:text="Tap start to begin!"
+        android:text="@string/instructions"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

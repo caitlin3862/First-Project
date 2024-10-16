@@ -53,9 +53,7 @@ class MainActivity : AppCompatActivity() {
                 playGame()
             } else {
                 /* Resets all values back to default/starting values */
-                gameStart = false
-                button.text = "START"
-                instructions.text = "Tap start to begin!"
+                instructions.text = resources.getText(R.string.tap)
                 score = 0
                 strike = 0
                 scoreText.setTextColor(Color.BLACK)
@@ -63,14 +61,15 @@ class MainActivity : AppCompatActivity() {
                 scoreText.text = "Score: " + score
                 strikeText.text = "Strike: " + strike
                 reset()
+                setRandNum()
             }
         }
 
     }
 
     private fun playGame(){
-        button.text = "RESTART"
-        instructions.text = "Tap the larger number!"
+        button.text = resources.getText(R.string.reset)
+        instructions.text = resources.getText(R.string.tap)
         setRandNum()
 
         num1Text.setOnClickListener {
@@ -90,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             scoreText.setTextColor(Color.GREEN)
             strikeText.setTextColor(Color.BLACK)
             scoreText.text = "Score: " + score
-            instructions.text = "Tap restart to play again!"
+            instructions.text = resources.getText(R.string.again)
             val winToast: Toast = Toast.makeText(this, "Congrats, you won! ^^", Toast.LENGTH_SHORT)
             winToast.show()
         } else if (strike == 3){
@@ -98,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             strikeText.setTextColor(Color.RED)
             scoreText.setTextColor(Color.BLACK)
             strikeText.text = "Strikes: " + strike
-            instructions.text = "Tap restart to play again!"
+            instructions.text = resources.getText(R.string.again)
             val loseToast: Toast = Toast.makeText(this, "Sorry, you lost :(", Toast.LENGTH_SHORT)
             loseToast.show()
         } else {
@@ -106,10 +105,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun reset(){
+    private fun reset() {
         layout.setBackgroundColor(Color.parseColor("#FDEF74"))
-        num1Text.text = ""
-        num2Text.text = ""
+        num1Text.text = null
+        num2Text.text = null
     }
 
     private fun checkAnswer(first: Int, second: Int){
@@ -135,17 +134,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun incrementScore(){
-        score++;
-        scoreText.setTextColor(Color.YELLOW)
-        strikeText.setTextColor(Color.BLACK)
-        scoreText.text = "Score: " + score
+        if (score < 10 && strike < 3) {
+            score++;
+            scoreText.setTextColor(Color.YELLOW)
+            strikeText.setTextColor(Color.BLACK)
+            scoreText.text = "Score: " + score
+        }
     }
 
     private fun incrementStrike(){
-        strike++;
-        strikeText.setTextColor(Color.YELLOW)
-        scoreText.setTextColor(Color.BLACK)
-        strikeText.text = "Strikes: " + strike
+        if (strike < 3 && score < 10) {
+            strike++;
+            strikeText.setTextColor(Color.YELLOW)
+            scoreText.setTextColor(Color.BLACK)
+            strikeText.text = "Strikes: " + strike
+        }
     }
 
 }
