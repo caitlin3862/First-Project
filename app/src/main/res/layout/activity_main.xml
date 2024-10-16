@@ -13,11 +13,11 @@
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score: "
-        android:textSize="24sp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
+        android:text="Score: "
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,11 +27,11 @@
         android:id="@+id/strikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Strikes: "
-        android:textSize="24sp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
+        android:text="Strikes: "
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,10 +49,10 @@
         android:id="@+id/instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tap start to begin!"
-        android:textSize="32sp"
         android:layout_margin="16dp"
         android:layout_gravity="center"
+        android:text="Tap start to begin!"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,8 +64,9 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_margin="32dp"
-        android:background="#90D3F1"
-        app:cornerRadius="0dp" />
+        android:gravity="center"
+        android:textSize="64sp"
+        android:background="#90D3F1" />
 
     <TextView
         android:id="@+id/num2"
@@ -73,8 +74,9 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:background="#FFB342"
-        app:cornerRadius="0dp" />
+        android:gravity="center"
+        android:textSize="64sp"
+        android:background="#FFB342" />
 
 
 </LinearLayout>
