@@ -56,15 +56,13 @@ class MainActivity : AppCompatActivity() {
                 gameStart = false
                 button.text = "START"
                 instructions.text = "Tap start to begin!"
-                num1Text.text = ""
-                num2Text.text = ""
                 score = 0
                 strike = 0
                 scoreText.setTextColor(Color.BLACK)
                 strikeText.setTextColor(Color.BLACK)
                 scoreText.text = "Score: " + score
                 strikeText.text = "Strike: " + strike
-                layout.setBackgroundColor(Color.parseColor("#FDEF74"))
+                reset()
             }
         }
 
@@ -88,28 +86,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkWin(){
         if (score == 10){
+            reset()
             scoreText.setTextColor(Color.GREEN)
             strikeText.setTextColor(Color.BLACK)
-            layout.setBackgroundColor(Color.parseColor("#FDEF74"))
             scoreText.text = "Score: " + score
             instructions.text = "Tap restart to play again!"
-            num1Text.text = ""
-            num2Text.text = ""
             val winToast: Toast = Toast.makeText(this, "Congrats, you won! ^^", Toast.LENGTH_SHORT)
             winToast.show()
         } else if (strike == 3){
+            reset()
             strikeText.setTextColor(Color.RED)
             scoreText.setTextColor(Color.BLACK)
-            layout.setBackgroundColor(Color.parseColor("#FDEF74"))
             strikeText.text = "Strikes: " + strike
             instructions.text = "Tap restart to play again!"
-            num1Text.text = ""
-            num2Text.text = ""
             val loseToast: Toast = Toast.makeText(this, "Sorry, you lost :(", Toast.LENGTH_SHORT)
             loseToast.show()
         } else {
             //Nothing
         }
+    }
+
+    private fun reset(){
+        layout.setBackgroundColor(Color.parseColor("#FDEF74"))
+        num1Text.text = ""
+        num2Text.text = ""
     }
 
     private fun checkAnswer(first: Int, second: Int){
